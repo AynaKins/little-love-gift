@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #322d38;
+  --cream: #fffaf0;
+  --red: #ff5f69;
+  --deep-red: #df3f50;
+  --lavender: #dcd0ff;
+  --blue: #ccecff;
+  --peach: #ffd9c7;
+  --line: rgba(50, 45, 56, .17);
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; }
+body { margin: 0; background: #efeadf; color: var(--ink); font-family: Arial, Helvetica, sans-serif; overflow: hidden; }
+button, input { font: inherit; }
+button { color: inherit; }
+::selection { background: var(--red); color: white; }
+
+.love-book-site { position: relative; min-height: 100dvh; display: grid; place-items: center; padding: 36px 28px 82px; overflow: hidden; background: radial-gradient(circle at 22% 17%, rgba(255,255,255,.9), transparent 28%), radial-gradient(circle at 80% 84%, rgba(213,194,255,.42), transparent 32%), #ece6da; }
+.love-book-site::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .08; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.desk-doodle { position: absolute; color: rgba(50,45,56,.25); font-family: Georgia, "Times New Roman", serif; font-style: italic; transform: rotate(-8deg); }
+.doodle-one { top: 7vh; left: 4vw; color: rgba(255,95,105,.55); font-size: 42px; }
+.doodle-two { right: 3vw; bottom: 14vh; font-size: 28px; }
+.doodle-three { right: 7vw; top: 10vh; font-size: 34px; transform: rotate(13deg); }
+
+.book { position: relative; width: min(1180px, 90vw); height: min(730px, calc(100dvh - 145px)); min-height: 560px; filter: drop-shadow(0 30px 45px rgba(67,54,41,.22)); perspective: 1600px; animation: bookIn .62s cubic-bezier(.2,.75,.2,1) both; }
+.book-back { animation-name: bookBack; }
+@keyframes bookIn { from { opacity: 0; transform: translateX(28px) rotateY(-3deg) scale(.99); } }
+@keyframes bookBack { from { opacity: 0; transform: translateX(-28px) rotateY(3deg) scale(.99); } }
+.book-page { position: absolute; inset: 0; overflow: hidden; border: 1px solid rgba(50,45,56,.12); border-radius: 6px 16px 16px 6px; background: var(--cream); }
+.book-page::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); mix-blend-mode: multiply; }
+.tone-cream { background: #fffaf0; }
+.tone-lavender { background: #ded3fb; }
+.tone-blue { background: #d9f0fb; }
+.tone-peach { background: #ffdfcc; }
+.tone-red { background: var(--red); color: #fffaf4; }
+.page-top { position: absolute; z-index: 5; top: 22px; right: 30px; left: 36px; display: flex; justify-content: space-between; color: rgba(50,45,56,.48); font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .16em; text-transform: uppercase; }
+.tone-red .page-top { color: rgba(255,255,255,.62); }
+.page-top b { font-weight: 400; }
+.page-stitch { position: absolute; z-index: 8; top: 0; bottom: 0; left: 17px; width: 1px; background: repeating-linear-gradient(to bottom, transparent 0 9px, rgba(50,45,56,.21) 9px 17px); }
+.tone-red .page-stitch { background: repeating-linear-gradient(to bottom, transparent 0 9px, rgba(255,255,255,.34) 9px 17px); }
+
+.cover-page { background: var(--red); color: #fffaf4; }
+.cover-page::before { content: ""; position: absolute; inset: 20px; border: 1px solid rgba(255,255,255,.4); border-radius: 2px 11px 11px 2px; }
+.cover-label { position: absolute; top: 37px; left: 48px; font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .18em; }
+.cover-copy { position: absolute; top: 50%; left: clamp(48px, 9vw, 135px); transform: translateY(-51%); }
+.cover-copy > span { font-family: Georgia, "Times New Roman", serif; font-size: clamp(16px, 2vw, 27px); font-style: italic; }
+.cover-copy h1 { margin: 25px 0 0; font-size: clamp(78px, 10vw, 145px); font-weight: 760; line-height: .7; letter-spacing: -.08em; }
+.cover-copy h1 em { color: #fff1a9; font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.cover-copy p { margin: 44px 0 0; color: rgba(255,255,255,.76); font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-style: italic; line-height: 1.5; }
+.cover-mark { position: absolute; right: 8%; top: 50%; display: flex; align-items: center; gap: 14px; width: clamp(190px, 24vw, 320px); height: clamp(190px, 24vw, 320px); justify-content: center; border: 1px solid rgba(255,255,255,.38); border-radius: 50%; font-family: Georgia, "Times New Roman", serif; font-size: clamp(24px, 3vw, 42px); font-style: italic; transform: translateY(-50%) rotate(7deg); }
+.cover-mark::before, .cover-mark::after { content: ""; position: absolute; border: 1px dashed rgba(255,255,255,.22); border-radius: 50%; }
+.cover-mark::before { inset: 12px; }
+.cover-mark::after { inset: -16px; }
+.cover-mark i { font-weight: 400; }
+.cover-mark b { color: #fff1a9; font-family: Arial, sans-serif; font-weight: 400; }
+.cover-sign { position: absolute; right: 42px; bottom: 33px; font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .15em; }
+
+.trait-layout { height: 100%; display: grid; grid-template-columns: 1.05fr .8fr; padding: 86px 55px 48px 74px; }
+.trait-title > span, .things-head > span, .balance-page > span, .us-copy > span, .secret-copy > span, .final-page > span, .scratch-secret > span { font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .18em; }
+.trait-title h2, .things-head h2, .balance-page h2, .us-copy h2, .secret-copy h2, .final-page h2 { margin: 22px 0 0; font-size: clamp(58px, 7vw, 98px); line-height: .82; letter-spacing: -.07em; }
+.trait-title p { max-width: 410px; margin-top: 35px; color: #776f7c; font-family: Georgia, "Times New Roman", serif; font-size: 19px; font-style: italic; line-height: 1.55; }
+.trait-picker { align-self: center; display: grid; border-top: 1px solid var(--line); }
+.trait-picker button { display: grid; grid-template-columns: 38px 1fr; align-items: center; min-height: 68px; padding: 0 12px; border: 0; border-bottom: 1px solid var(--line); background: transparent; text-align: left; cursor: pointer; transition: background .25s, padding .25s; }
+.trait-picker button:hover, .trait-picker button.active { padding-left: 22px; background: rgba(255,95,105,.1); }
+.trait-picker button i { color: #9c939f; font-family: "Courier New", monospace; font-size: 8px; }
+.trait-picker button span { font-family: Georgia, "Times New Roman", serif; font-size: 20px; }
+.trait-answer { grid-column: 1 / -1; align-self: end; display: grid; grid-template-columns: .35fr 1fr; gap: 40px; padding: 24px 0 0; border-top: 1px solid var(--line); animation: answerIn .5s ease both; }
+.trait-answer > span { color: var(--deep-red); font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .15em; text-transform: uppercase; }
+.trait-answer p { max-width: 650px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 24px; line-height: 1.35; }
+@keyframes answerIn { from { opacity: 0; transform: translateY(8px); } }
+
+.things-head { position: absolute; top: 78px; left: 72px; width: 34%; }
+.things-head h2 { font-size: clamp(55px, 6.7vw, 94px); }
+.things-head p { color: #716785; font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-style: italic; }
+.thing-grid { position: absolute; top: 75px; right: 45px; bottom: 48px; width: 58%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; perspective: 1000px; }
+.thing-card { position: relative; min-height: 0; padding: 0; border: 0; background: transparent; transform-style: preserve-3d; cursor: pointer; transition: transform .55s cubic-bezier(.2,.8,.2,1); }
+.thing-card.flipped { transform: rotateY(180deg); }
+.thing-front, .thing-back { position: absolute; inset: 0; display: grid; align-content: space-between; padding: 18px; border: 1px solid rgba(50,45,56,.15); border-radius: 3px; backface-visibility: hidden; text-align: left; }
+.thing-front { background: rgba(255,255,255,.55); }
+.thing-back { background: #fff8df; transform: rotateY(180deg); }
+.thing-card:nth-child(2n) .thing-front { background: rgba(255,219,203,.7); }
+.thing-card:nth-child(3n) .thing-front { background: rgba(205,238,255,.75); }
+.thing-card i { color: rgba(50,45,56,.45); font-family: "Courier New", monospace; font-size: 8px; }
+.thing-card b { align-self: center; font-family: Georgia, "Times New Roman", serif; font-size: clamp(22px, 2.5vw, 35px); font-weight: 400; }
+.thing-card small { color: rgba(50,45,56,.48); font-family: "Courier New", monospace; font-size: 7px; letter-spacing: .1em; }
+.thing-back p { align-self: center; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(14px, 1.45vw, 19px); line-height: 1.4; }
+
+.balance-page { height: 100%; padding: 84px 72px 45px; }
+.balance-page h2 { font-size: clamp(70px, 8.5vw, 122px); }
+.balance-page h2 em { color: #487793; font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.balance-lead { position: absolute; top: 98px; right: 8%; max-width: 330px; color: #587080; font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-style: italic; line-height: 1.5; }
+.balance-control { width: min(760px, 82%); margin: 60px auto 0; }
+.balance-words { display: flex; justify-content: space-between; font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
+.balance-control input, .future-slider input { width: 100%; height: 38px; margin: 8px 0; appearance: none; background: transparent; cursor: ew-resize; }
+.balance-control input::-webkit-slider-runnable-track, .future-slider input::-webkit-slider-runnable-track { height: 2px; background: rgba(50,45,56,.26); }
+.balance-control input::-webkit-slider-thumb, .future-slider input::-webkit-slider-thumb { width: 25px; height: 25px; margin-top: -11px; appearance: none; border: 1px solid var(--ink); border-radius: 50%; background: #fff; box-shadow: 0 4px 12px rgba(50,45,56,.17); }
+.balance-result { min-height: 42px; text-align: center; }
+.balance-result p { margin: 6px 0 0; color: #487793; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-style: italic; }
+.balance-page blockquote { position: absolute; right: 8%; bottom: 48px; margin: 0; color: #4d6675; font-family: Georgia, "Times New Roman", serif; font-size: clamp(19px, 2.4vw, 31px); font-style: italic; }
+
+.us-layout { height: 100%; display: grid; grid-template-columns: .86fr 1.14fr; gap: 6%; padding: 73px 55px 45px 70px; }
+.our-photo { align-self: center; padding: 14px 14px 35px; background: #fffdf7; box-shadow: 0 18px 30px rgba(75,50,37,.17); transform: rotate(-3.5deg); }
+.our-photo img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; filter: saturate(.78) contrast(.94); }
+.our-photo span { display: block; margin-top: 15px; font-family: Georgia, "Times New Roman", serif; font-size: 14px; font-style: italic; text-align: center; }
+.us-copy { align-self: center; }
+.us-copy h2 { font-size: clamp(56px, 6.8vw, 95px); }
+.us-copy h2 em { color: #c65a39; font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.us-copy > p { max-width: 520px; margin: 28px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 17px; line-height: 1.52; transition: opacity .2s; }
+.future-slider { margin-top: 35px; }
+.future-slider div { display: flex; justify-content: space-between; font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .14em; text-transform: uppercase; }
+
+.secret-layout { height: 100%; display: grid; grid-template-columns: .68fr 1.32fr; gap: 5%; align-items: center; padding: 78px 58px 48px 72px; }
+.secret-copy h2 { font-size: clamp(54px, 6vw, 86px); }
+.secret-copy > p { color: #7f7783; font-family: Georgia, "Times New Roman", serif; font-style: italic; }
+.scratch-card { position: relative; height: 72%; min-height: 370px; overflow: hidden; border: 1px solid rgba(50,45,56,.18); border-radius: 8px; box-shadow: 0 16px 35px rgba(50,45,56,.13); }
+.scratch-secret { position: absolute; inset: 0; display: grid; align-content: center; padding: clamp(28px, 5vw, 62px); background: var(--red); color: #fffaf4; }
+.scratch-secret h3 { margin: 20px 0 12px; font-size: clamp(52px, 6vw, 84px); line-height: .9; letter-spacing: -.06em; }
+.scratch-secret p { max-width: 520px; margin: 0; color: rgba(255,255,255,.76); font-family: Georgia, "Times New Roman", serif; font-size: 17px; line-height: 1.5; }
+.scratch-secret b { margin-top: 30px; color: #fff1a9; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-style: italic; font-weight: 400; }
+.scratch-card canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; transition: opacity .7s; }
+.scratch-card.revealed canvas { opacity: 0; pointer-events: none; }
+
+.final-page { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 68px 8% 45px; }
+.final-page h2 { font-size: clamp(76px, 10vw, 145px); }
+.final-page h2 em { color: #fff1a9; font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.final-page > p { position: absolute; right: 8%; top: 26%; max-width: 350px; color: rgba(255,255,255,.78); font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-style: italic; line-height: 1.55; }
+.final-page > button { position: absolute; right: 10%; bottom: 16%; display: flex; align-items: center; gap: 16px; padding: 0; border: 0; background: transparent; color: #fff; cursor: pointer; }
+.final-page > button i { width: 58px; height: 58px; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; background: rgba(255,255,255,.07); transition: transform .3s, background .3s; }
+.final-page > button:hover i { transform: scale(1.08); background: rgba(255,255,255,.16); }
+.final-page > button span { font-family: "Courier New", monospace; font-size: 8px; letter-spacing: .12em; }
+.final-sign { position: absolute; left: 8%; bottom: 36px; font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-style: italic; }
+.hug-rings { position: absolute; right: calc(10% + 29px); bottom: calc(16% + 29px); pointer-events: none; }
+.hug-rings i { position: absolute; inset: -28px; border: 1px solid rgba(255,255,255,.42); border-radius: 50%; opacity: 0; }
+.hugged .hug-rings i { animation: hug 1.8s ease-out infinite; }
+.hugged .hug-rings i:nth-child(2) { animation-delay: .4s; }
+.hugged .hug-rings i:nth-child(3) { animation-delay: .8s; }
+@keyframes hug { from { opacity: .55; transform: scale(.45); } to { opacity: 0; transform: scale(3.5); } }
+
+.book-nav { position: absolute; bottom: 34px; left: 50%; display: flex; align-items: center; gap: 20px; transform: translateX(-50%); }
+.book-nav > button { width: 34px; height: 34px; padding: 0; border: 1px solid rgba(50,45,56,.22); border-radius: 50%; background: rgba(255,255,255,.45); cursor: pointer; }
+.book-nav > button:disabled { opacity: .25; cursor: default; }
+.page-dots { display: flex; gap: 8px; }
+.page-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(50,45,56,.23); cursor: pointer; transition: transform .2s, background .2s; }
+.page-dots button.active { background: var(--red); transform: scale(1.45); }
+.book-hint { position: absolute; bottom: 9px; left: 50%; margin: 0; color: rgba(50,45,56,.42); font-family: "Courier New", monospace; font-size: 7px; letter-spacing: .12em; transform: translateX(-50%); }
+
+@media (max-width: 780px) {
+  body { overflow: auto; }
+  .love-book-site { min-height: 100dvh; padding: 14px 12px 76px; }
+  .desk-doodle { display: none; }
+  .book { width: 100%; height: calc(100dvh - 96px); min-height: 640px; filter: drop-shadow(0 18px 25px rgba(67,54,41,.18)); }
+  .page-top { top: 16px; right: 18px; left: 27px; }
+  .page-stitch { left: 10px; }
+  .cover-page::before { inset: 10px; }
+  .cover-label { top: 25px; left: 29px; }
+  .cover-copy { top: 44%; left: 32px; }
+  .cover-copy h1 { font-size: min(21vw, 96px); }
+  .cover-copy p { margin-top: 28px; font-size: 16px; }
+  .cover-mark { right: 7%; top: auto; bottom: 7%; width: 135px; height: 135px; transform: rotate(7deg); }
+  .cover-sign { right: 25px; bottom: 22px; }
+  .trait-layout { grid-template-columns: 1fr; padding: 58px 24px 25px 34px; overflow-y: auto; }
+  .trait-title h2, .things-head h2, .balance-page h2, .us-copy h2, .secret-copy h2 { font-size: 14vw; }
+  .trait-title p { margin: 20px 0; font-size: 16px; }
+  .trait-picker { align-self: auto; }
+  .trait-picker button { min-height: 54px; }
+  .trait-answer { grid-column: 1; grid-template-columns: 1fr; gap: 10px; padding: 18px 0; }
+  .trait-answer p { font-size: 18px; }
+  .things-head { position: static; width: auto; padding: 58px 28px 20px 34px; }
+  .things-head h2 { margin-top: 14px; }
+  .thing-grid { position: static; width: auto; height: calc(100% - 220px); padding: 0 18px 20px 28px; grid-template-columns: 1fr 1fr; }
+  .thing-front, .thing-back { padding: 12px; }
+  .thing-card b { font-size: 20px; }
+  .thing-back p { font-size: 12px; }
+  .balance-page { padding: 58px 28px 25px 34px; }
+  .balance-lead { position: static; margin-top: 20px; font-size: 16px; }
+  .balance-control { width: 100%; margin-top: 46px; }
+  .balance-page blockquote { right: 28px; bottom: 42px; left: 34px; font-size: 19px; }
+  .us-layout { grid-template-columns: 1fr; gap: 17px; padding: 55px 23px 24px 32px; overflow-y: auto; }
+  .our-photo { width: min(260px, 72%); justify-self: center; padding: 9px 9px 27px; }
+  .us-copy h2 { margin-top: 12px; }
+  .us-copy > p { margin-top: 16px; font-size: 15px; }
+  .future-slider { margin-top: 15px; }
+  .secret-layout { grid-template-columns: 1fr; gap: 16px; padding: 58px 22px 22px 32px; }
+  .secret-copy h2 { margin-top: 13px; }
+  .scratch-card { min-height: 360px; height: 100%; }
+  .scratch-secret { padding: 26px; }
+  .scratch-secret h3 { font-size: 48px; }
+  .final-page { justify-content: flex-start; padding: 62px 32px 28px; }
+  .final-page h2 { margin-top: 18px; font-size: 20vw; }
+  .final-page > p { position: static; margin-top: 28px; font-size: 16px; }
+  .final-page > button { right: auto; bottom: 18%; left: 32px; }
+  .hug-rings { right: auto; bottom: calc(18% + 29px); left: 61px; }
+  .final-sign { left: 32px; bottom: 27px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
